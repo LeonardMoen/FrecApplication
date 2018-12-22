@@ -1,6 +1,7 @@
 package frec;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 public class Ghost {
 	final int OX, OY, OSPEED;
@@ -14,6 +15,7 @@ public class Ghost {
 	int eatenTimer;
 	boolean trapped;
 	int trappedTimer;
+        BufferedImage image;
 
 	int[] pointsX = new int[] { x, x + 4, x + 8, x + 12, x + 12, x + 8, x + 4, x };
 	int[] pointsY = new int[] { y + 4, y, y, y + 4, y + 18, y + 15, y + 15, y + 18 };
@@ -260,22 +262,23 @@ public class Ghost {
 	}
 
 	void drawGhost(Graphics g) {
-		// If ghost can be eaten, draw it in blue
-		if (this.canBeEaten) {
-			g.setColor(Color.BLUE);
-			// If there's not much time left, flash blue and white
-			if (this.eatenTimer < 90) {
-				if ((this.eatenTimer / 10) % 2 == 0) {
-					g.setColor(Color.WHITE);
-				}
-			}
-		} else {
-			g.setColor(this.color);
-		}
-		// g.fillRect(this.x + 2, this.y + 2, 16, 16);
-
-		// Draw the ghost
-		g.fillPolygon(pointsX, pointsY, 8);
+            g.drawImage(image, this.x, this.y, 15,20,null);
+//		// If ghost can be eaten, draw it in blue
+//		if (this.canBeEaten) {
+//			g.setColor(Color.BLUE);
+//			// If there's not much time left, flash blue and white
+//			if (this.eatenTimer < 90) {
+//				if ((this.eatenTimer / 10) % 2 == 0) {
+//					g.setColor(Color.WHITE);
+//				}
+//			}
+//		} else {
+//			g.setColor(this.color);
+//		}
+//		// g.fillRect(this.x + 2, this.y + 2, 16, 16);
+//
+//		// Draw the ghost
+//		g.fillPolygon(pointsX, pointsY, 8);
 	}
 
 	void stop() {

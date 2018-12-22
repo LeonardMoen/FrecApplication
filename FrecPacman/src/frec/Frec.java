@@ -67,6 +67,10 @@ public class Frec extends JPanel implements KeyListener {
                  try{
                    this.frosh = ImageIO.read(new FileInputStream("src/frec/frosh.png"));
                    this.tam = ImageIO.read(new FileInputStream("src/frec/tam.png"));
+                   ghosts[0].image = ImageIO.read(new FileInputStream("src/frec/Ghost1.png"));
+                   ghosts[1].image = ImageIO.read(new FileInputStream("src/frec/Ghost2.png"));
+                   ghosts[2].image = ImageIO.read(new FileInputStream("src/frec/Ghost3.png"));
+                   ghosts[3].image = ImageIO.read(new FileInputStream("src/frec/Ghost4.png"));
                 }catch(IOException e){
                     e.printStackTrace();
                 }
